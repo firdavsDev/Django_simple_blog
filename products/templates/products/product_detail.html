@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Product ilovasi ichidagi {{ object.title }}</h1>
+
+<p>{% if object.description %}{{ object.description }}{% else %}Tez orada....{% endif %}</p>
+
+{% for i in object %}
+    <!-- Link berish uchun kerak  -->
+    <!-- <p> {{ i.id }} - <a href="/product/{{ i.id }}/">{{ i.title }}</a></p> -->
+    <p> {{ i.id }} - <a href="{{ i.get_absoulte_url }}">{{ i.title }}</a></p>   
+{% endfor %}
+
+{% endblock %}

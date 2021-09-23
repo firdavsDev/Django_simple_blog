@@ -1,0 +1,20 @@
+<!-- bu boshqa html ichida sodir buladi -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- GET BU URLSA KODLAENI KURSATIB TURADI
+POT ESA KURSATMAYDI -->
+
+<form method="POST" action=".">{% csrf_token %}
+
+    <!-- .as_p paragraf kurunishda kursatadi
+    .as_html  -->
+
+    {{ form.as_p }}
+<input type="submit" value='Save' />
+
+</form>
+
+
+{% endblock %}

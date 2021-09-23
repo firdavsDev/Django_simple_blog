@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>{{ object.title }}</p>
+<p>{{ object.description }}</p>
+<p>{{ object.price }}</p>
+<br><br>
+<h3>Hozirda mavjud tavarlar ruyhari</h3>
+
+{% for i in object_list %}
+    <!-- Link berish uchun kerak  -->
+    <!-- <p> {{ i.id }} - <a href="/product/{{ i.id }}/">{{ i.title }}</a></p> -->
+    <p> {{ i.id }} - <a href="{{ i.get_absoulte_url }}">{{ i.title }}</a></p>   
+{% endfor %}
+
+{% endblock %}

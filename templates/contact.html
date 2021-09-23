@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+        <h1>Contact page</h1>
+
+        
+
+        <p>
+            {{ Name|capfirst}} bu birinchi harfni katta harfga uzgartirib beradi (Name bu yerda parametr) <br>
+            {{ Name|upper}} bu hammasini katta harfga olib utadi
+            {{ html_code|safe}} html kodlari uchun
+      <h3>Men haqimda qisqacha:</h3> {{ about_me }} {{ Name|capfirst }} {{number}}
+      {{ lists }}
+        </p>
+        <ul>
+            <li>Item1</li>
+            <li>Item2</li>
+            <li>Item3</li>
+        </ul>
+
+        <ul>
+            <!-- for loopdn foydalanish -->
+            {% for abc in lists %}
+
+            <!-- if elif else foydalanish -->
+                {% if abc == 333 %}
+                <!-- forloop.counter sanaydi 1, 2, 3 -->
+                    <li>{{ forloop.counter }}---{{ abc|add:22 }} 22qushdi</li>
+                {% elif abc == "Abc" %}
+                    <li>Bu Abcga teng</li>
+                {% else %}
+                    <li>{{ forloop.counter }}---{{ abc }}</li>
+                {% endif %}
+
+            {% endfor %}
+    
+        </ul>
+
+    {% endblock %}
+    
+</body>
+</html>
